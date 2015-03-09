@@ -1,7 +1,3 @@
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
 var readline, print;
 var inputs = readline().split(' ');
 var W = parseInt(inputs[0], 10); // width of the building.
@@ -12,18 +8,14 @@ var X0 = parseInt(inputs[0], 10);
 var Y0 = parseInt(inputs[1], 10);
 var BOMB_DIR;
 
-
 function Hero(x, y, w, h) {
     "use strict";
-
-    // variable declaration
     this.x = x;
     this.y = y;
     this.BuildX0 = 0;      // left
     this.BuildX1 = w - 1;  // right
     this.BuildY0 = 0;      // up
     this.BuildY1 = h - 1;  // down
-
 
     // ==== functions ==== //
 
@@ -70,5 +62,4 @@ while (true) {
 
     // the location of the next window Batman should jump to.
     print(batman.x + ' ' + batman.y);
-
 }
