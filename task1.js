@@ -1,4 +1,3 @@
-/* jshint latedef:nofunc */
 function divide(a, b) {
     "use strict";
     var rem = a % b;
