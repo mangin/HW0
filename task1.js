@@ -1,3 +1,4 @@
+/*global readline, print*/
 function divide(a, b) {
     "use strict";
     var rem = a % b;
