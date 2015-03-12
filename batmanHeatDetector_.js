@@ -1,5 +1,5 @@
 /*global readline, print*/
-
+/* by Sirotkin Dmitry, FIIT-301 */
 var inputs, W, H, N, X0, Y0, batman, BOMB_DIR;
 inputs = readline().split(' ');
 W = parseInt(inputs[0], 10); // width of the building.
