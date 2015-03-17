@@ -1,9 +1,11 @@
 /*global readline, printErr, print */
 (function () {
     'use strict';
-    var inputs = readline().split(' '),
-        W = parseInt(inputs[0], 10),
-        H = parseInt(inputs[1], 10),
+    var widthHeightInputs = readline().split(' '),
+        W = parseInt(widthHeightInputs[0], 10),
+        H = parseInt(widthHeightInputs[1], 10),
+        N = parseInt(readline(), 10),
+        inputs = readline().split(' '),
         x = parseInt(inputs[0], 10),
         y = parseInt(inputs[1], 10),
         firstX = 0,
@@ -13,6 +15,7 @@
         BOMB_DIR,
         firstLetter,
         lastLetter;
+    printErr("Hello! I am unused variable N! My value is " + N);
     while (true) {
         BOMB_DIR = readline();
         firstLetter = BOMB_DIR[0];
@@ -26,10 +29,6 @@
             firstY = y;
             y = Math.floor((lastY + y) / 2);
             break;
-        default:
-            lastY = y;
-            firstY = y;
-            break;
         }
         switch (lastLetter) {
         case 'L':
@@ -40,9 +39,6 @@
             firstX = x;
             x = Math.floor((lastX + x) / 2);
             break;
-        default:
-            lastX = x;
-            firstX = x;
         }
         print(x + ' ' + y);
     }
