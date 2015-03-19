@@ -1,0 +1,63 @@
+/*global readline*/
+/*global print*/
+
+(function () {
+    "use strict";
+    var input = readline().split(' '),
+        W = parseInt(input[0], 10),
+        H = parseInt(input[1], 10),
+        N = parseInt(readline(), 10),
+        inputs = readline().split(' '),
+        X0 = parseInt(inputs[0], 10),
+        Y0 = parseInt(inputs[1], 10),
+        Hstep = 0,
+        Vstep = 0,
+        BOMB_DIR;
+
+    while (true) {
+        BOMB_DIR = readline();
+        switch (BOMB_DIR) {
+        case "U":
+            H = Y0;
+            Y0 = Math.floor((Y0 - Vstep) / 2) + Vstep;
+            break;
+        case "UR":
+            Hstep = X0 - 1;
+            H = Y0;
+            X0 = X0 + Math.floor((W - X0 - 1) / 2) + 1;
+            Y0 = Math.floor((Y0 - Vstep) / 2) + Vstep;
+            break;
+        case "R":
+            Hstep = X0 - 1;
+            X0 = X0 + Math.floor((W - X0 - 1) / 2) + 1;
+            break;
+        case "DR":
+            Vstep = Y0 - 1;
+            Hstep = X0 - 1;
+            X0 = X0 + Math.floor((W - X0 - 1) / 2) + 1;
+            Y0 = Y0 + Math.floor((H - Y0 - 1) / 2) + 1;
+            break;
+        case "D":
+            Vstep = Y0 - 1;
+            Y0 = Y0 + Math.floor((H - Y0 - 1) / 2) + 1;
+            break;
+        case "DL":
+            Vstep = Y0 - 1;
+            W = X0;
+            X0 = Math.floor((X0 - Hstep) / 2) + Hstep;
+            Y0 = Y0 + Math.floor((H - Y0 - 1) / 2) + 1;
+            break;
+        case "L":
+            W = X0;
+            X0 = Math.floor((X0 - Hstep) / 2) + Hstep;
+            break;
+        case "UL":
+            H = Y0;
+            W = X0;
+            Y0 = Math.floor((Y0 - Vstep) / 2) + Vstep;
+            X0 = Math.floor((X0 - Hstep) / 2) + Hstep;
+            break;
+        }
+        print(X0 + " " + Y0);
+    }
+}());
