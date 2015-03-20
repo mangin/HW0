@@ -1,35 +1,38 @@
-/*global readline: false, print: false */
+/*global readline: false, print: false, inputs: false*/
 
-var inputs = readline().split(' ');
-var W = parseInt(inputs[0], 10);
-var H = parseInt(inputs[1], 10);
-var N = parseInt(readline(), 10);
-var inputs = readline().split(' ');
-var X0 = parseInt(inputs[0], 10);
-var Y0 = parseInt(inputs[1], 10);
-var left = 0;
-var right = W - 1;
-var up = 0;
-var down = H - 1;
-var BOMB_DIR = readline();
+(function () {
+    "use strict";
+    var inputs = readline().split(' '),
+        W = parseInt(inputs[0], 10),
+        H = parseInt(inputs[1], 10),
+        /*N = parseInt(readline(), 10),*/
+        /*inputs = readline().split(' '),*/
+        X0 = parseInt(inputs[0], 10),
+        Y0 = parseInt(inputs[1], 10),
+        left = 0,
+        right = W - 1,
+        up = 0,
+        down = H - 1,
+        BOMB_DIR = readline();
 
-while (true) {
+    while (true) {
 
-    if (BOMB_DIR.indexOf('R') >= 0) {
-        left = X0 + 1;
+        if (BOMB_DIR.indexOf('R') >= 0) {
+            left = X0 + 1;
+        }
+        if (BOMB_DIR.indexOf('L') >= 0) {
+            right = X0 - 1;
+        }
+        if (BOMB_DIR.charAt(0) === 'U') {
+            down = Y0 - 1;
+        }
+        if (BOMB_DIR.charAt(0) === 'D') {
+            up = Y0 + 1;
+        }
+
+        X0 = Math.round((left + right) / 2);
+        Y0 = Math.round((up + down) / 2);
+
+        print(X0 + ' ' + Y0);
     }
-    if (BOMB_DIR.indexOf('L') >= 0) {
-        right = X0 - 1;
-    }
-    if (BOMB_DIR.charAt(0) === 'U') {
-        down = Y0 - 1;
-    }
-    if (BOMB_DIR.charAt(0) === 'D') {
-        up = Y0 + 1;
-    }
-
-    X0 = Math.round((left + right) / 2);
-    Y0 = Math.round((up + down) / 2);
-
-    print(X0 + ' ' + Y0);
-}
+}());
