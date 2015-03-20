@@ -1,4 +1,4 @@
-/*global readline: false, print: false, inputs: false*/
+/*global readline: false, print: false*/
 
 (function () {
     "use strict";
