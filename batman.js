@@ -2,12 +2,12 @@
 
 (function () {
     "use strict";
-    var inputs, W, H, N, X0, Y0, dim, BOMB_DIR;
+    var inputs, W, H, X0, Y0, dim, BOMB_DIR;
 
     inputs = readline().split(' ');
     W = parseInt(inputs[0], 10); // width of the building.
     H = parseInt(inputs[1], 10); // height of the building.
-    N = parseInt(readline(), 10); // maximum number of turns before game over.
+    parseInt(readline(), 10); // maximum number of turns before game over.
     inputs = readline().split(' ');
     X0 = parseInt(inputs[0], 10);
     Y0 = parseInt(inputs[1], 10);
@@ -27,11 +27,11 @@
     function getProjection(axis, direction) {
         if (direction.indexOf(axis.charAt(1)) >= 0) {
             return +1;
-        } else if (direction.indexOf(axis.charAt(0)) >= 0) {
-            return -1;
-        } else {
-            return 0;
         }
+        if (direction.indexOf(axis.charAt(0)) >= 0) {
+            return -1;
+        }
+        return 0;
     }
 
     function choosePart(trio, part) {
@@ -41,19 +41,19 @@
                 c: Math.ceil((trio.c + trio.r) / 2),
                 r: trio.r
             };
-        } else if (part === -1) {
+        }
+        if (part === -1) {
             return {
                 l: trio.l,
                 c: Math.floor((trio.l + trio.c) / 2),
                 r: trio.c
             };
-        } else {
-            return {
-                l: trio.c,
-                c: trio.c,
-                r: trio.c
-            };
         }
+        return {
+            l: trio.c,
+            c: trio.c,
+            r: trio.c
+        };
     }
 
     // game loop
