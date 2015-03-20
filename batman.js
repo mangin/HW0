@@ -1,18 +1,22 @@
 /*global readline, printErr, print */
 
-(function() {
-    var inputs = readline().split(' ');
-    var W = parseInt(inputs[0], 10); // width of the building.
-    var H = parseInt(inputs[1], 10); // height of the building.
-    var inputs = readline().split(' ');
-    var X0 = parseInt(inputs[0], 10);
-    var Y0 = parseInt(inputs[1], 10);
+(function () {
+    'use strict';
 
-    var BatmanPosition = { X: X0, Y: Y0 };
+    var inputs1 = readline().split(' '),
+        inputs2 = readline().split(' '),
 
-    var BombArea = { X1: 0, Y1: 0, X2: W, Y2: H };
+        W = parseInt(inputs1[0], 10), // width of the building.
+        H = parseInt(inputs1[1], 10), // height of the building.
+        X0 = parseInt(inputs2[0], 10),
+        Y0 = parseInt(inputs2[1], 10),
 
-    var BOMB_DIR, JumpTarget;
+        BatmanPosition = { X: X0, Y: Y0 },
+
+        BombArea = { X1: 0, Y1: 0, X2: W, Y2: H },
+
+        BOMB_DIR,
+        JumpTarget;
 
     // game loop
     while (true) {
@@ -49,4 +53,4 @@
         print(JumpTarget.X + ' ' + JumpTarget.Y); // the location of the next window Batman should jump to.
         BatmanPosition = JumpTarget;
     }
-})();
+}());
